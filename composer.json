@@ -1,0 +1,18 @@
+{
+    "name": "omnitrade/woocommerce",
+    "type": "library",
+    "description": "Omnitrade WooCommerce: a sale paid on the shop's checkout (orders created unpaid), the shop's orders and their payment state, refunds and webhooks, over the REST API v3.",
+    "keywords": ["woocommerce", "wordpress", "commerce", "omnitrade"],
+    "license": "LGPL-3.0-or-later",
+    "authors": [{"name": "Marco Meyer", "email": "marco.meyer@glitchr.io"}],
+    "require": {
+        "php": ">=8.2",
+        "glitchr/omnitrade": "^1.0@dev",
+        "symfony/http-client-contracts": "^3.0"
+    },
+    "require-dev": {"phpunit/phpunit": "^11.0", "symfony/http-client": "^6.4|^7.0|^8.0"},
+    "suggest": {"symfony/http-client": "The HTTP client the gateway talks through"},
+    "autoload": {"psr-4": {"Omnitrade\\WooCommerce\\": ""}, "exclude-from-classmap": ["/Tests/"]},
+    "autoload-dev": {"psr-4": {"Omnitrade\\WooCommerce\\Tests\\": "Tests/"}},
+    "config": {"sort-packages": true}
+}
