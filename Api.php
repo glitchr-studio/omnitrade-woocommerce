@@ -38,6 +38,49 @@ final class Api
      */
     public function call(string $method, string $path, ?array $body = null, array $query = []): array
     {
+        return $this->send($method, $path, $body, $query)[0];
+    }
+
+    /**
+     * A GET of a collection, with how many pages it has (X-WP-TotalPages;
+     * null when the shop does not say).
+     *
+     * @return array{0: list<array<string, mixed>>, 1: ?int}
+     *
+     * @throws ProviderException
+     */
+    public function page(string $path, array $query = []): array
+    {
+        [$data, $headers] = $this->send('GET', $path, null, $query);
+        $pages = $headers['x-wp-totalpages'][0] ?? null;
+
+        return [array_values($data), null === $pages || '' === $pages ? null : (int) $pages];
+    }
+
+    /**
+     * Every page of a collection, 100 at a time.
+     *
+     * @return list<array<string, mixed>>
+     *
+     * @throws ProviderException
+     */
+    public function all(string $path, array $query = []): array
+    {
+        $all = [];
+        $page = 1;
+        do {
+            [$items, $pages] = $this->page($path, ['per_page' => 100, 'page' => $page] + $query);
+            array_push($all, ...$items);
+            $more = null !== $pages ? $page < $pages : 100 === \count($items);
+            ++$page;
+        } while ($more);
+
+        return $all;
+    }
+
+    /** @return array{0: array<mixed>, 1: array<string, list<string>>} the JSON answer and the headers */
+    private function send(string $method, string $path, ?array $body, array $query): array
+    {
         try {
             $response = $this->http->request($method, $this->url().'/wp-json/wc/v3/'.ltrim($path, '/'), [
                 'auth_basic' => [$this->consumerKey, $this->consumerSecret],
@@ -48,6 +91,7 @@ final class Api
             ]);
             $status = $response->getStatusCode();
             $content = $response->getContent(false);
+            $headers = $response->getHeaders(false);
         } catch (HttpExceptionInterface|\JsonException $e) {
             throw new ProviderException('woocommerce', 'WooCommerce request failed: '.$e->getMessage(), null, $e);
         }
@@ -59,7 +103,7 @@ final class Api
             throw new ProviderException('woocommerce', (string) ($data['message'] ?? sprintf('HTTP %d', $status)), isset($data['code']) ? (string) $data['code'] : null);
         }
 
-        return $data;
+        return [$data, $headers];
     }
 
     public function canVerify(): bool

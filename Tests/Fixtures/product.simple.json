@@ -1,0 +1,32 @@
+{
+  "id": 501,
+  "name": "Cr&eacute;mant d&#039;Alsace",
+  "slug": "cremant-alsace",
+  "permalink": "https://shop.example/product/cremant-alsace/",
+  "date_modified": "2026-10-02T10:30:00",
+  "date_modified_gmt": "2026-10-02T08:30:00",
+  "type": "simple",
+  "status": "publish",
+  "description": "<p>Fines bulles.</p>",
+  "short_description": "<p>Brut.</p>",
+  "sku": "CRM-BRUT",
+  "global_unique_id": "3760000000501",
+  "price": "14.90",
+  "regular_price": "16.50",
+  "sale_price": "14.90",
+  "on_sale": true,
+  "purchasable": true,
+  "manage_stock": true,
+  "stock_quantity": 36,
+  "stock_status": "instock",
+  "weight": "1.5",
+  "categories": [ { "id": 15, "name": "Effervescents", "slug": "effervescents" }, { "id": 16, "name": "Alsace", "slug": "alsace" } ],
+  "tags": [ { "id": 31, "name": "f&ecirc;te", "slug": "fete" } ],
+  "brands": [ { "id": 41, "name": "Domaine Exemple", "slug": "domaine-exemple" } ],
+  "images": [ { "id": 901, "src": "https://shop.example/wp-content/uploads/cremant.jpg", "name": "cremant", "alt": "La bouteille" } ],
+  "attributes": [
+    { "id": 2, "name": "Cépage", "slug": "pa_cepage", "position": 0, "visible": true, "variation": false, "options": [ "Pinot blanc", "Auxerrois" ] },
+    { "id": 0, "name": "Contenance", "slug": "contenance", "position": 1, "visible": true, "variation": false, "options": [ "75 cl" ] }
+  ],
+  "variations": []
+}

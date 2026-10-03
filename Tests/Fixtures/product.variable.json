@@ -1,0 +1,29 @@
+{
+  "id": 600,
+  "name": "Margaux",
+  "slug": "margaux",
+  "permalink": "https://shop.example/product/margaux/",
+  "date_modified_gmt": "2026-10-03T12:00:00",
+  "type": "variable",
+  "status": "draft",
+  "description": "",
+  "short_description": "<p>De garde.</p>",
+  "sku": "MGX",
+  "price": "24.00",
+  "regular_price": "",
+  "sale_price": "",
+  "on_sale": false,
+  "purchasable": true,
+  "manage_stock": true,
+  "stock_quantity": 7,
+  "stock_status": "instock",
+  "weight": "",
+  "categories": [ { "id": 17, "name": "Bordeaux", "slug": "bordeaux" } ],
+  "tags": [],
+  "images": [],
+  "attributes": [
+    { "id": 3, "name": "Marque", "slug": "pa_marque", "position": 0, "visible": true, "variation": false, "options": [ "Château Exemple" ] },
+    { "id": 4, "name": "Millésime", "slug": "pa_millesime", "position": 1, "visible": true, "variation": true, "options": [ "2019", "2018" ] }
+  ],
+  "variations": [ 601, 602 ]
+}

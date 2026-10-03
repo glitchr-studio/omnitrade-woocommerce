@@ -1,0 +1,38 @@
+[
+  {
+    "id": 601,
+    "type": "variation",
+    "permalink": "https://shop.example/product/margaux/?attribute_pa_millesime=2019",
+    "status": "publish",
+    "sku": "MGX19",
+    "price": "29.00",
+    "regular_price": "29.00",
+    "sale_price": "",
+    "on_sale": false,
+    "purchasable": true,
+    "manage_stock": false,
+    "stock_quantity": null,
+    "stock_status": "instock",
+    "weight": "1.3",
+    "image": { "id": 911, "src": "https://shop.example/wp-content/uploads/margaux-2019.jpg", "name": "margaux-2019", "alt": "" },
+    "attributes": [ { "id": 4, "name": "Millésime", "option": "2019" } ]
+  },
+  {
+    "id": 602,
+    "type": "variation",
+    "permalink": "https://shop.example/product/margaux/?attribute_pa_millesime=2018",
+    "status": "publish",
+    "sku": "MGX18",
+    "price": "24.00",
+    "regular_price": "24.00",
+    "sale_price": "",
+    "on_sale": false,
+    "purchasable": true,
+    "manage_stock": "parent",
+    "stock_quantity": 7,
+    "stock_status": "instock",
+    "weight": "",
+    "image": { "id": 0, "src": "", "name": "", "alt": "" },
+    "attributes": [ { "id": 4, "name": "Millésime", "option": "2018" } ]
+  }
+]
