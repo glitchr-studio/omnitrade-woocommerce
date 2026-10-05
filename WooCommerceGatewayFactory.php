@@ -3,7 +3,6 @@
 namespace Omnitrade\WooCommerce;
 
 use Omnitrade\Config;
-use Omnitrade\Exception\InvalidConfigException;
 use Omnitrade\GatewayFactory;
 use Omnitrade\WooCommerce\Action\FetchInventoryAction;
 use Omnitrade\WooCommerce\Action\FetchOrderAction;
@@ -46,13 +45,7 @@ final class WooCommerceGatewayFactory extends GatewayFactory
             'weight_unit' => 'kg',
             'product_status' => 'any',
             'omnitrade.api' => function (Config $c) {
-                $http = $this->http;
-                if (!$http) {
-                    if (!class_exists(HttpClient::class)) {
-                        throw new InvalidConfigException('The "woocommerce" gateway needs symfony/http-client.');
-                    }
-                    $http = HttpClient::create();
-                }
+                $http = $this->http ?? HttpClient::create();
 
                 return new Api($http, (string) $c['url'], (string) $c['consumer_key'], (string) $c['consumer_secret'], $c['webhook_secret'] ?: null, (int) $c['timeout']);
             },
