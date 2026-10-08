@@ -42,4 +42,4 @@ regular and sale prices are mapped: see [docs/catalogue.md](docs/catalogue.md).
 Credentials: a REST API key with Read/Write (WooCommerce → Settings → Advanced → REST API) over
 HTTPS, and a webhook (same screen → Webhooks) for `order.updated` with a secret of your own.
 
-License: LGPL-3.0-or-later.
+License: MIT since 2026-10-09; earlier versions remain published under LGPL-3.0-or-later.
